@@ -1,0 +1,25 @@
+input {
+  beats {
+    port => 5044
+}
+
+}
+
+
+filter {
+  grok {
+    match => {
+        "message" => "%{TIMESTAMP_ISO8601:date_time} %{IP:client_ip} %{WORD:cs_username} %{WORD:computer_name} %{IP:computer_ip} %{WORD:cs_method_name} %{URIPATH:cs_uri} %{DATA} %{NUMBER:cs_status} %{NUMBER:cs_bytes_upload} %{NUMBER:cs_bytes_download} %{NUMBER:timetaken} %{PROG:cs_version} %{DATA:cs_agent} %{DATA:cs_WEBTRENDS_ID} %{URI:cs_url}"
+}
+}
+}
+
+
+output {
+elasticsearch {
+        hosts => ["http://localhost:9200"]
+        user => "elastic"
+        password => "NoV_FOEktLAuV-YYZa1Z"
+        index => "amazon_new_logs"
+}
+}
