@@ -1,0 +1,6 @@
+# Example of two pipelines:
+
+- pipeline.id: one
+  path.config: C:\\elk-8.15.0\\logstash-8.15.0\\myconfig\\amazonconfig\\amazon.log
+- pipeline.id: two
+  path.config: C:\\elk-8.15.0\\logstash-8.15.0\\myconfig\\amazonconfig\\two\\two.conf
