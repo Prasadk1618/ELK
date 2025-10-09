@@ -1,0 +1,37 @@
+PUT _index_template/amazonpolicys
+{
+  "index_patterns": [
+    "amazonpolicys-*"
+  ],
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "amazonpolicys",
+      "index.lifecycle.rollover_alias": "amazonpolicys"
+    },
+    "mappings": {
+      "properties": {
+        "status_code": {
+          "type": "integer"
+        },
+        "response_time": {
+          "type": "integer"
+        },
+        "dfe": {
+          "type": "keyword"
+        },
+        "user_ip": {
+          "type": "ip"
+        },
+        "user_name": {
+          "type": "keyword"
+        },
+        "method_type": {
+          "type": "keyword"
+        },
+        "message": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
